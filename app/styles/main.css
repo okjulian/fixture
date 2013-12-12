@@ -85,3 +85,8 @@ body {
 .equipo {
   width: 40% !important;
 }
+
+.nav-justified > li, .nav-tabs.nav-justified > li {
+  display: table-cell !important;
+  width: 1% !important;
+}

@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('mrMundialApp', [
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider) {
     $routeProvider
