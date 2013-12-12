@@ -1,16 +1,18 @@
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('mrMundialApp', [
+    angular.module('mrMundialApp', [
   'ngRoute',
   'ui.bootstrap'
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+        .config(function ($routeProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'views/main.html',
+                    controller: 'MainCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+        });
+}());
