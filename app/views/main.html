@@ -11,11 +11,11 @@
 
   <tabset justified=true>
     <tab heading="A">
-      <div class="row partido">
+      <div class="row partido" ng-repeat="partido in partidos.A">
         <div class="input-group">
           <input type="number" class="form-control resultado">
-          <span class="input-group-addon equipo">Brasil</span>
-          <span class="input-group-addon equipo">Croacia</span>
+          <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+          <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
           <input type="number" class="form-control resultado">
         </div>
       </div>

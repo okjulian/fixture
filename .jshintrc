@@ -25,6 +25,11 @@
     "beforeEach": false,
     "it": false,
     "browser": false,
+    "element": false,
+    "inject": false,
+    "xdescribe": false,
+    "xit": false,
+    "jasmine": false,
     "expect": false
   }
 }
