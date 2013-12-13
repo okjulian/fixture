@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('mrMundialApp', [
-  'ngRoute',
-  'ui.bootstrap'
-])
+        'ngRoute',
+        'ui.bootstrap'
+    ])
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {
