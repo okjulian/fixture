@@ -34,8 +34,12 @@
                 expect(element('.tab-pane:eq(1) .resultado:eq(0)').val()).not().toBe('');
             });
 
-            xit('no deberia completar el resultado de un partido ya asignado manualmente', function () {
+            it('no deberia completar el resultado de un partido ya asignado manualmente', function () {
                 using('.partido:eq(0)').input('partidos.A[$index].resultado[0]').enter(2);
+                using('.partido:eq(0)').input('partidos.A[$index].resultado[1]').enter(3);
+                element('.tab-pane:eq(0) .completar-grupo').click();
+                expect(element('.tab-pane:eq(0) .resultado:eq(0)').val()).toBe('2');
+                expect(element('.tab-pane:eq(0) .resultado:eq(1)').val()).toBe('3');
             });
         });
 

@@ -9,8 +9,13 @@ angular.module('mrMundialApp')
 
         $scope.autoCompletarGrupo = function (letra) {
             $scope.partidos[letra].forEach(function (element, index, array) {
-                element.resultado[0] = Math.floor(Math.random() * 4);
-                element.resultado[1] = Math.floor(Math.random() * 4);
+                if (element.resultado[0] === null) {
+                    element.resultado[0] = Math.floor(Math.random() * 4);
+                }
+
+                if (element.resultado[1] === null) {
+                    element.resultado[1] = Math.floor(Math.random() * 4);
+                }
             });
         };
     });

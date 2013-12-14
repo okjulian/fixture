@@ -24,11 +24,21 @@ describe('Controller: FaseGruposCtrl', function () {
         expect(scope.partidos.B.length).toBe(6);
     });
 
-    it('deberia poder autocompletar los resultados de un grupo', function () {
-        scope.autoCompletarGrupo('A');
-        scope.partidos.A.forEach(function (element, index, array) {
-            expect(element.resultado[0]).not.toBe(null);
-            expect(element.resultado[1]).not.toBe(null);
+    describe('autocompletar', function () {
+        it('deberia autocompletar los resultados de un grupo', function () {
+            scope.autoCompletarGrupo('A');
+            scope.partidos.A.forEach(function (element, index, array) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+        });
+
+        it('no deberia sobreescribir resultados ya asignados', function () {
+            scope.partidos.A[0].resultado[0] = 4;
+            scope.partidos.A[0].resultado[1] = 0;
+            scope.autoCompletarGrupo('A');
+            expect(scope.partidos.A[0].resultado[0]).toBe(4);
+            expect(scope.partidos.A[0].resultado[1]).toBe(0);
         });
     });
 });
