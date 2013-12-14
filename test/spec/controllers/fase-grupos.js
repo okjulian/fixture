@@ -19,4 +19,8 @@ describe('Controller: FaseGruposCtrl', function () {
     it('deberia tener los 6 partidos del grupo A', function () {
         expect(scope.partidos.A.length).toBe(6);
     });
+
+    it('deberia tener los 6 partidos del grupo B', function () {
+        expect(scope.partidos.B.length).toBe(6);
+    });
 });

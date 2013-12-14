@@ -1,36 +1,51 @@
 <div class="header">
-	<ul class="nav nav-pills pull-right">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
-	</ul>
-	<h3 class="text-muted">mr mundial</h3>
+    <ul class="nav nav-pills pull-right">
+        <li class="active">
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+    <h3 class="text-muted">mr mundial</h3>
 </div>
 
 <div id="partidos">
 
-  <tabset justified=true>
-    <tab heading="A">
-      <div class="row partido" ng-repeat="partido in partidos.A">
-        <div class="input-group">
-          <input type="number" class="form-control resultado">
-          <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
-          <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-          <input type="number" class="form-control resultado">
-        </div>
-      </div>
-    </tab>
-    <tab heading="B">Vertical content 2</tab>
-    <tab heading="C">Vertical content 1</tab>
-    <tab heading="D">Vertical content 1</tab>
-    <tab heading="E">Vertical content 2</tab>
-    <tab heading="F">Vertical content 2</tab>
-    <tab heading="G">Vertical content 1</tab>
-    <tab heading="H">Vertical content 2</tab>
-  </tabset>
+    <tabset justified=true>
+        <tab heading="A">
+            <div class="row partido" ng-repeat="partido in partidos.A">
+                <div class="input-group">
+                    <input type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input type="number" class="form-control resultado">
+                </div>
+            </div>
+        </tab>
+        <tab heading="B">
+            <div class="row partido" ng-repeat="partido in partidos.B">
+                <div class="input-group">
+                    <input type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input type="number" class="form-control resultado">
+                </div>
+            </div>
+        </tab>
+        <tab heading="C">Vertical content 1</tab>
+        <tab heading="D">Vertical content 1</tab>
+        <tab heading="E">Vertical content 2</tab>
+        <tab heading="F">Vertical content 2</tab>
+        <tab heading="G">Vertical content 1</tab>
+        <tab heading="H">Vertical content 2</tab>
+    </tabset>
 
 </div>
 
 <div class="footer">
-	<p>♥ from the Yeoman team</p>
+    <p>♥ from the Yeoman team</p>
 </div>

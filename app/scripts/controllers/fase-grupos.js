@@ -3,6 +3,7 @@
 angular.module('mrMundialApp')
   .controller('FaseGruposCtrl', function ($scope, FaseGrupos) {
     $scope.partidos = {
-        A: FaseGrupos.obtenerPartidosGrupo('A')
+        A: FaseGrupos.obtenerPartidosGrupo('A'),
+        B: FaseGrupos.obtenerPartidosGrupo('B')
     };
   });

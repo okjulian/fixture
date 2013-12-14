@@ -18,51 +18,60 @@ angular.module('mrMundialApp')
                         nombre: 'Camerún'
                 }
                ]
+            },
+            B: {
+                equipos: [
+                    {
+                        nombre: 'España'
+                },
+                    {
+                        nombre: 'Holanda'
+                },
+                    {
+                        nombre: 'Chile'
+                },
+                    {
+                        nombre: 'Australia'
+                }
+               ]
             }
         };
 
         this.equipos = function (letra) {
             return _grupos[letra].equipos;
         };
-        
+
         this.partidos = function (letra) {
-            return [
-                {
-                    equipos: [
+            return [{
+                equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[1]
                     ]
-                },
-                {
-                    equipos: [
+            }, {
+                equipos: [
                         _grupos[letra].equipos[2],
                         _grupos[letra].equipos[3]
                     ]
-                },
-                {
-                    equipos: [
+            }, {
+                equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[2]
                     ]
-                },
-                {
-                    equipos: [
+            }, {
+                equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[1]
                     ]
-                },
-                {
-                    equipos: [
+            }, {
+                equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[0]
                     ]
-                },
-                {
-                    equipos: [
+            }, {
+                equipos: [
                         _grupos[letra].equipos[1],
                         _grupos[letra].equipos[2]
                     ]
-                }
-            ];
+            }];
         };
     });
