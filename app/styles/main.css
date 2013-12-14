@@ -90,3 +90,8 @@ body {
   display: table-cell !important;
   width: 1% !important;
 }
+
+.partido {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}

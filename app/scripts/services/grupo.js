@@ -43,31 +43,37 @@ angular.module('mrMundialApp')
 
         this.partidos = function (letra) {
             return [{
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[1]
                     ]
             }, {
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[2],
                         _grupos[letra].equipos[3]
                     ]
             }, {
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[2]
                     ]
             }, {
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[1]
                     ]
             }, {
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[0]
                     ]
             }, {
+                resultado: [null,null],
                 equipos: [
                         _grupos[letra].equipos[1],
                         _grupos[letra].equipos[2]

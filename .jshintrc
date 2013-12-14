@@ -30,6 +30,7 @@
     "xdescribe": false,
     "xit": false,
     "jasmine": false,
+    "using": false,
     "expect": false
   }
 }

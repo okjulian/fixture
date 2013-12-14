@@ -20,6 +20,25 @@
             expect(element('#partidos li:eq(1)').attr('class')).toContain('active');
             expect(element('.tab-pane:eq(1) .partido').count()).toBe(6);
         });
+
+        describe('Autocompletar', function () {
+
+            it('deberia poder generar los resultados del grupo A', function () {
+                element('.tab-pane:eq(0) .completar-grupo').click();
+                expect(element('.tab-pane:eq(0) .resultado:eq(0)').val()).not().toBe('');
+            });
+
+            it('deberia poder generar los resultados del grupo B', function () {
+                element('#partidos li:eq(1) a').click();
+                element('.tab-pane:eq(1) .completar-grupo').click();
+                expect(element('.tab-pane:eq(1) .resultado:eq(0)').val()).not().toBe('');
+            });
+
+            xit('no deberia completar el resultado de un partido ya asignado manualmente', function () {
+                using('.partido:eq(0)').input('partidos.A[$index].resultado[0]').enter(2);
+            });
+        });
+
     });
 
 }());
