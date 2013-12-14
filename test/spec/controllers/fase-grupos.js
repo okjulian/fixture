@@ -33,6 +33,18 @@ describe('Controller: FaseGruposCtrl', function () {
             });
         });
 
+        it('deberia autocompletar los resultados de todos los grupos', function () {
+            scope.autoCompletarGrupos();
+            scope.partidos.A.forEach(function (element, index, array) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+            scope.partidos.B.forEach(function (element, index, array) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+        });
+
         it('no deberia sobreescribir resultados ya asignados', function () {
             scope.partidos.A[0].resultado[0] = 4;
             scope.partidos.A[0].resultado[1] = 0;

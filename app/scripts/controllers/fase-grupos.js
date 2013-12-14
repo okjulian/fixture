@@ -18,4 +18,13 @@ angular.module('mrMundialApp')
                 }
             });
         };
+
+        $scope.autoCompletarGrupos = function () {
+            var property;
+            for (property in $scope.partidos) {
+                if ($scope.partidos.hasOwnProperty(property)) {
+                    $scope.autoCompletarGrupo(property);
+                }
+            }
+        };
     });
