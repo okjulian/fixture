@@ -120,7 +120,7 @@ describe('Service: Grupo', function () {
             partidos = Grupo.partidos('B');
         });
 
-        it('deberia tener a Brasil, Croacia, Mexico y Camerún', function () {
+        it('deberia tener a España, Holanda, Chile y Australia', function () {
             expect(equipos.length).toBe(4);
             expect(equipos[0].nombre).toBe('España');
             expect(equipos[1].nombre).toBe('Holanda');
@@ -159,6 +159,24 @@ describe('Service: Grupo', function () {
                 expect(partidos[5].equipos[1].nombre).toBe('Chile');
             });
 
+        });
+    });
+
+    describe('Grupo C', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('C');
+            partidos = Grupo.partidos('C');
+        });
+
+        it('deberia tener a Colombia, Grecia, Costa de Marfil y Japón', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Colombia');
+            expect(equipos[1].nombre).toBe('Grecia');
+            expect(equipos[2].nombre).toBe('Costa de Marfil');
+            expect(equipos[3].nombre).toBe('Japón');
         });
     });
 

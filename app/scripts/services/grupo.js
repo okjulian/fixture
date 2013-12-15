@@ -34,6 +34,22 @@ angular.module('mrMundialApp')
                         nombre: 'Australia'
                 }
                ]
+            },
+            C: {
+                equipos: [
+                    {
+                        nombre: 'Colombia'
+                },
+                    {
+                        nombre: 'Grecia'
+                },
+                    {
+                        nombre: 'Costa de Marfil'
+                },
+                    {
+                        nombre: 'Japón'
+                }
+               ]
             }
         };
 

@@ -17,6 +17,7 @@
 
     <tabset justified=true>
         <tab heading="A">
+
             <!-- <partidos grupo="A"> </partidos> -->
             <div class="row partido" ng-repeat="partido in partidos.A">
                 <!-- <partido equipos="partido.equipos" resultado="partidos.A[$index].resultado"> -->
@@ -35,6 +36,7 @@
 
         </tab>
         <tab heading="B">
+
             <div class="row partido" ng-repeat="partido in partidos.B">
                 <div class="input-group">
                     <input ng-model="partidos.B[$index].resultado[0]" type="number" class="form-control resultado">
@@ -50,7 +52,23 @@
             </div>
 
         </tab>
-        <tab heading="C">Vertical content 1</tab>
+        <tab heading="C">
+
+            <div class="row partido" ng-repeat="partido in partidos.C">
+                <div class="input-group">
+                    <input ng-model="partidos.C[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.C[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('C')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+
+        </tab>
         <tab heading="D">Vertical content 1</tab>
         <tab heading="E">Vertical content 2</tab>
         <tab heading="F">Vertical content 2</tab>
