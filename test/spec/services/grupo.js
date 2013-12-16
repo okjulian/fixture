@@ -198,4 +198,76 @@ describe('Service: Grupo', function () {
         });
     });
 
+    describe('Grupo E', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('E');
+            partidos = Grupo.partidos('E');
+        });
+
+        it('deberia tener a Suiza, Ecuador, Francia y Honduras', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Suiza');
+            expect(equipos[1].nombre).toBe('Ecuador');
+            expect(equipos[2].nombre).toBe('Francia');
+            expect(equipos[3].nombre).toBe('Honduras');
+        });
+    });
+
+    describe('Grupo F', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('F');
+            partidos = Grupo.partidos('F');
+        });
+
+        it('deberia tener a Argentina, Bosnia, Iran y Nigeria', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Argentina');
+            expect(equipos[1].nombre).toBe('Bosnia');
+            expect(equipos[2].nombre).toBe('Iran');
+            expect(equipos[3].nombre).toBe('Nigeria');
+        });
+    });
+
+    describe('Grupo G', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('G');
+            partidos = Grupo.partidos('G');
+        });
+
+        it('deberia tener a Alemania, Portugal, Ghana y USA', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Alemania');
+            expect(equipos[1].nombre).toBe('Portugal');
+            expect(equipos[2].nombre).toBe('Ghana');
+            expect(equipos[3].nombre).toBe('USA');
+        });
+    });
+
+    describe('Grupo H', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('H');
+            partidos = Grupo.partidos('H');
+        });
+
+        it('deberia tener a Bélgica, Algeria, Rusia y Corea', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Bélgica');
+            expect(equipos[1].nombre).toBe('Algeria');
+            expect(equipos[2].nombre).toBe('Rusia');
+            expect(equipos[3].nombre).toBe('Corea');
+        });
+    });
+
 });

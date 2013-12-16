@@ -44,7 +44,30 @@
                 tabDelGrupo('D').click();
                 botonCompletarGrupo('D').click();
                 expect(resultadosGrupo('D')).not().toBe('');
-                expect(resultadosGrupo('D')).not().toBe('');
+            });
+
+            it('deberia poder generar los resultados del grupo E', function () {
+                tabDelGrupo('E').click();
+                botonCompletarGrupo('E').click();
+                expect(resultadosGrupo('E')).not().toBe('');
+            });
+
+            it('deberia poder generar los resultados del grupo F', function () {
+                tabDelGrupo('F').click();
+                botonCompletarGrupo('F').click();
+                expect(resultadosGrupo('F')).not().toBe('');
+            });
+
+            it('deberia poder generar los resultados del grupo G', function () {
+                tabDelGrupo('G').click();
+                botonCompletarGrupo('G').click();
+                expect(resultadosGrupo('G')).not().toBe('');
+            });
+
+            it('deberia poder generar los resultados del grupo H', function () {
+                tabDelGrupo('H').click();
+                botonCompletarGrupo('H').click();
+                expect(resultadosGrupo('H')).not().toBe('');
             });
 
             it('deberia poder generar los resultados de todos los grupos desde el grupo A', function () {

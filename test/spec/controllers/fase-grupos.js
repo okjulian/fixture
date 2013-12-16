@@ -32,6 +32,22 @@ describe('Controller: FaseGruposCtrl', function () {
         expect(scope.partidos.D.length).toBe(6);
     });
 
+    it('deberia tener los 6 partidos del grupo E', function () {
+        expect(scope.partidos.E.length).toBe(6);
+    });
+
+    it('deberia tener los 6 partidos del grupo F', function () {
+        expect(scope.partidos.F.length).toBe(6);
+    });
+
+    it('deberia tener los 6 partidos del grupo G', function () {
+        expect(scope.partidos.G.length).toBe(6);
+    });
+
+    it('deberia tener los 6 partidos del grupo H', function () {
+        expect(scope.partidos.H.length).toBe(6);
+    });
+
     describe('autocompletar', function () {
         it('deberia autocompletar los resultados de un grupo', function () {
             scope.autoCompletarGrupo('A');

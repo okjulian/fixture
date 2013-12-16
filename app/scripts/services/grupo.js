@@ -4,8 +4,7 @@ angular.module('mrMundialApp')
     .service('Grupo', function Grupo() {
         var _grupos = {
             A: {
-                equipos: [
-                    {
+                equipos: [{
                         nombre: 'Brasil'
                 },
                     {
@@ -16,12 +15,10 @@ angular.module('mrMundialApp')
                 },
                     {
                         nombre: 'Camerún'
-                }
-               ]
+                }]
             },
             B: {
-                equipos: [
-                    {
+                equipos: [{
                         nombre: 'España'
                 },
                     {
@@ -32,12 +29,10 @@ angular.module('mrMundialApp')
                 },
                     {
                         nombre: 'Australia'
-                }
-               ]
+                }]
             },
             C: {
-                equipos: [
-                    {
+                equipos: [{
                         nombre: 'Colombia'
                 },
                     {
@@ -48,12 +43,10 @@ angular.module('mrMundialApp')
                 },
                     {
                         nombre: 'Japón'
-                }
-               ]
+                }]
             },
             D: {
-                equipos: [
-                    {
+                equipos: [{
                         nombre: 'Uruguay'
                 },
                     {
@@ -64,8 +57,54 @@ angular.module('mrMundialApp')
                 },
                     {
                         nombre: 'Italia'
-                }
-               ]
+                }]
+            },
+            E: {
+                equipos: [{
+                    nombre: 'Suiza'
+                }, {
+                    nombre: 'Ecuador'
+                }, {
+                    nombre: 'Francia'
+                }, {
+                    nombre: 'Honduras'
+                }]
+            },
+            F: {
+                equipos: [{
+                        nombre: 'Argentina'
+                },
+                    {
+                        nombre: 'Bosnia'
+                },
+                    {
+                        nombre: 'Iran'
+                },
+                    {
+                        nombre: 'Nigeria'
+                }]
+            },
+            G: {
+                equipos: [{
+                    nombre: 'Alemania'
+                },{
+                    nombre: 'Portugal'
+                },{
+                    nombre: 'Ghana'
+                },{
+                    nombre: 'USA'
+                }]
+            },
+            H: {
+                equipos: [{
+                    nombre: 'Bélgica'
+                },{
+                    nombre: 'Algeria'
+                },{
+                    nombre: 'Rusia'
+                },{
+                    nombre: 'Corea'
+                }]
             }
         };
 
@@ -75,37 +114,37 @@ angular.module('mrMundialApp')
 
         this.partidos = function (letra) {
             return [{
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[1]
                     ]
             }, {
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[2],
                         _grupos[letra].equipos[3]
                     ]
             }, {
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[0],
                         _grupos[letra].equipos[2]
                     ]
             }, {
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[1]
                     ]
             }, {
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[3],
                         _grupos[letra].equipos[0]
                     ]
             }, {
-                resultado: [null,null],
+                resultado: [null, null],
                 equipos: [
                         _grupos[letra].equipos[1],
                         _grupos[letra].equipos[2]

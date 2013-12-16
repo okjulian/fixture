@@ -85,10 +85,74 @@
                 <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
             </div>
         </tab>
-        <tab heading="E">Vertical content 2</tab>
-        <tab heading="F">Vertical content 2</tab>
-        <tab heading="G">Vertical content 1</tab>
-        <tab heading="H">Vertical content 2</tab>
+        <tab heading="E">
+
+            <div class="row partido" ng-repeat="partido in partidos.E">
+                <div class="input-group">
+                    <input ng-model="partidos.E[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.E[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('E')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+
+        </tab>
+        <tab heading="F">
+
+            <div class="row partido" ng-repeat="partido in partidos.F">
+                <div class="input-group">
+                    <input ng-model="partidos.F[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.F[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('F')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+
+        </tab>
+        <tab heading="G">
+
+            <div class="row partido" ng-repeat="partido in partidos.G">
+                <div class="input-group">
+                    <input ng-model="partidos.G[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.G[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('G')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+
+        </tab>
+        <tab heading="H">
+
+            <div class="row partido" ng-repeat="partido in partidos.H">
+                <div class="input-group">
+                    <input ng-model="partidos.H[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.H[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('H')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+
+        </tab>
     </tabset>
 
 </div>

@@ -6,7 +6,11 @@ angular.module('mrMundialApp')
             A: FaseGrupos.obtenerPartidosGrupo('A'),
             B: FaseGrupos.obtenerPartidosGrupo('B'),
             C: FaseGrupos.obtenerPartidosGrupo('C'),
-            D: FaseGrupos.obtenerPartidosGrupo('D')
+            D: FaseGrupos.obtenerPartidosGrupo('D'),
+            E: FaseGrupos.obtenerPartidosGrupo('E'),
+            F: FaseGrupos.obtenerPartidosGrupo('F'),
+            G: FaseGrupos.obtenerPartidosGrupo('G'),
+            H: FaseGrupos.obtenerPartidosGrupo('H')
         };
 
         $scope.autoCompletarGrupo = function (letra) {
