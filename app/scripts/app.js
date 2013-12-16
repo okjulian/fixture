@@ -11,6 +11,10 @@
                     templateUrl: 'views/main.html',
                     controller: 'FaseGruposCtrl'
                 })
+                .when('/llaves', {
+                  templateUrl: 'views/llaves.html',
+                  controller: 'LlavesCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

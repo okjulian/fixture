@@ -14,23 +14,10 @@ angular.module('mrMundialApp')
         };
 
         $scope.autoCompletarGrupo = function (letra) {
-            $scope.partidos[letra].forEach(function (element, index, array) {
-                if (element.resultado[0] === null) {
-                    element.resultado[0] = Math.floor(Math.random() * 4);
-                }
-
-                if (element.resultado[1] === null) {
-                    element.resultado[1] = Math.floor(Math.random() * 4);
-                }
-            });
+            FaseGrupos.autoCompletarGrupo(letra);
         };
 
         $scope.autoCompletarGrupos = function () {
-            var property;
-            for (property in $scope.partidos) {
-                if ($scope.partidos.hasOwnProperty(property)) {
-                    $scope.autoCompletarGrupo(property);
-                }
-            }
+            FaseGrupos.autoCompletarTodos();
         };
     });

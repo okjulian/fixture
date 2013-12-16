@@ -8,4 +8,10 @@ angular.module('mrMundialApp')
       this.obtenerPartidosGrupo = function (letra) {
           return Grupo.partidos(letra);
       };
+      this.autoCompletarGrupo = function (letra) {
+          Grupo.autoCompletar(letra);
+      };
+      this.autoCompletarTodos = function () {
+          Grupo.autoCompletarTodos();
+      };
   });

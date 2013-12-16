@@ -270,4 +270,45 @@ describe('Service: Grupo', function () {
         });
     });
 
+    describe('autocompletar', function () {
+        it('deberia autocompletar los resultados de un grupo', function () {
+            var partidos = Grupo.partidos('A');
+
+            Grupo.autoCompletar('A');
+
+            partidos.forEach(function (element) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+        });
+
+        it('deberia autocompletar los resultados de todos los grupos', function () {
+            var partidosA = Grupo.partidos('A');
+            var partidosB = Grupo.partidos('B');
+
+            Grupo.autoCompletarTodos();
+
+            partidosA.forEach(function (element) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+            partidosB.forEach(function (element) {
+                expect(element.resultado[0]).not.toBe(null);
+                expect(element.resultado[1]).not.toBe(null);
+            });
+        });
+
+        it('no deberia sobreescribir resultados ya asignados', function () {
+            var partidos = Grupo.partidos('A');
+
+            partidos[0].resultado[0] = 4;
+            partidos[0].resultado[1] = 0;
+
+            Grupo.autoCompletar('A');
+
+            expect(partidos[0].resultado[0]).toBe(4);
+            expect(partidos[0].resultado[1]).toBe(0);
+        });
+    });
+
 });

@@ -4,7 +4,7 @@ describe('Service: FaseGrupos', function () {
 
     // load the service's module
     beforeEach(module('mrMundialApp', function ($provide) {
-        GrupoMock = jasmine.createSpyObj('GrupoMock', ['equipos', 'partidos']);
+        GrupoMock = jasmine.createSpyObj('GrupoMock', ['equipos', 'partidos', 'autoCompletar', 'autoCompletarTodos']);
         $provide.value('Grupo', GrupoMock);
     }));
 
@@ -37,6 +37,18 @@ describe('Service: FaseGrupos', function () {
         it('deberia devolver los equipos de un grupo', function () {
             FaseGrupos.obtenerPartidosGrupo('A');
             expect(GrupoMock.partidos).toHaveBeenCalledWith('A');
+        });
+    });
+
+    describe('autocompletar', function () {
+        it('deberia autocompletar los resultados de un grupo', function () {
+            FaseGrupos.autoCompletarGrupo('A');
+            expect(GrupoMock.autoCompletar).toHaveBeenCalledWith('A');
+        });
+
+        it('deberia autocompletar los resultados de todos los grupos', function () {
+            FaseGrupos.autoCompletarTodos();
+            expect(GrupoMock.autoCompletarTodos).toHaveBeenCalled();
         });
     });
 
