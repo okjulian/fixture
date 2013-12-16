@@ -180,4 +180,22 @@ describe('Service: Grupo', function () {
         });
     });
 
+    describe('Grupo D', function () {
+        var equipos,
+            partidos;
+
+        beforeEach(function () {
+            equipos = Grupo.equipos('D');
+            partidos = Grupo.partidos('D');
+        });
+
+        it('deberia tener a Uruguay, Costa Rica, Inglaterra e Italia', function () {
+            expect(equipos.length).toBe(4);
+            expect(equipos[0].nombre).toBe('Uruguay');
+            expect(equipos[1].nombre).toBe('Costa Rica');
+            expect(equipos[2].nombre).toBe('Inglaterra');
+            expect(equipos[3].nombre).toBe('Italia');
+        });
+    });
+
 });

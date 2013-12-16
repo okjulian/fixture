@@ -28,6 +28,10 @@ describe('Controller: FaseGruposCtrl', function () {
         expect(scope.partidos.C.length).toBe(6);
     });
 
+    it('deberia tener los 6 partidos del grupo D', function () {
+        expect(scope.partidos.D.length).toBe(6);
+    });
+
     describe('autocompletar', function () {
         it('deberia autocompletar los resultados de un grupo', function () {
             scope.autoCompletarGrupo('A');

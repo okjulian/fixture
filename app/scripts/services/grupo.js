@@ -50,6 +50,22 @@ angular.module('mrMundialApp')
                         nombre: 'Japón'
                 }
                ]
+            },
+            D: {
+                equipos: [
+                    {
+                        nombre: 'Uruguay'
+                },
+                    {
+                        nombre: 'Costa Rica'
+                },
+                    {
+                        nombre: 'Inglaterra'
+                },
+                    {
+                        nombre: 'Italia'
+                }
+               ]
             }
         };
 

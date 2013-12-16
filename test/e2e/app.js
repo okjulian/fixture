@@ -40,6 +40,13 @@
                 expect(resultadosGrupo('C')).not().toBe('');
             });
 
+            it('deberia poder generar los resultados del grupo D', function () {
+                tabDelGrupo('D').click();
+                botonCompletarGrupo('D').click();
+                expect(resultadosGrupo('D')).not().toBe('');
+                expect(resultadosGrupo('D')).not().toBe('');
+            });
+
             it('deberia poder generar los resultados de todos los grupos desde el grupo A', function () {
                 botonCompletarGruposDelGrupo('A').click();
                 expect(resultadosGrupo('A')).not().toBe('');

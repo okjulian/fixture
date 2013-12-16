@@ -69,7 +69,22 @@
             </div>
 
         </tab>
-        <tab heading="D">Vertical content 1</tab>
+        <tab heading="D">
+
+            <div class="row partido" ng-repeat="partido in partidos.D">
+                <div class="input-group">
+                    <input ng-model="partidos.D[$index].resultado[0]" type="number" class="form-control resultado">
+                    <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
+                    <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
+                    <input ng-model="partidos.D[$index].resultado[1]" type="number" class="form-control resultado">
+                </div>
+            </div>
+
+            <div id="autocompletar" class="btn-group btn-group-justified">
+                <a ng-click="autoCompletarGrupo('D')" class="btn btn-primary btn-lg active completar-grupo" role="button">Completar Grupo</a>
+                <a ng-click="autoCompletarGrupos()" class="btn btn-default btn-lg active completar-grupos" role="button">Completar Grupos</a>
+            </div>
+        </tab>
         <tab heading="E">Vertical content 2</tab>
         <tab heading="F">Vertical content 2</tab>
         <tab heading="G">Vertical content 1</tab>
@@ -79,5 +94,5 @@
 </div>
 
 <div class="footer">
-    <p>♥ from the Yeoman team</p>
+    <p>Celeste y blanca ♥</p>
 </div>
