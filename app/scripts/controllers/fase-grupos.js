@@ -1,23 +1,23 @@
 'use strict';
 
 angular.module('mrMundialApp')
-    .controller('FaseGruposCtrl', function ($scope, FaseGrupos) {
+    .controller('FaseGruposCtrl', function ($scope, Grupo) {
         $scope.partidos = {
-            A: FaseGrupos.obtenerPartidosGrupo('A'),
-            B: FaseGrupos.obtenerPartidosGrupo('B'),
-            C: FaseGrupos.obtenerPartidosGrupo('C'),
-            D: FaseGrupos.obtenerPartidosGrupo('D'),
-            E: FaseGrupos.obtenerPartidosGrupo('E'),
-            F: FaseGrupos.obtenerPartidosGrupo('F'),
-            G: FaseGrupos.obtenerPartidosGrupo('G'),
-            H: FaseGrupos.obtenerPartidosGrupo('H')
+            A: Grupo.partidos('A'),
+            B: Grupo.partidos('B'),
+            C: Grupo.partidos('C'),
+            D: Grupo.partidos('D'),
+            E: Grupo.partidos('E'),
+            F: Grupo.partidos('F'),
+            G: Grupo.partidos('G'),
+            H: Grupo.partidos('H')
         };
 
         $scope.autoCompletarGrupo = function (letra) {
-            FaseGrupos.autoCompletarGrupo(letra);
+            Grupo.autoCompletar(letra);
         };
 
         $scope.autoCompletarGrupos = function () {
-            FaseGrupos.autoCompletarTodos();
+            Grupo.autoCompletarTodos();
         };
     });
