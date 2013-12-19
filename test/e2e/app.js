@@ -103,6 +103,29 @@
 
     });
 
+    describe('Octavos', function () {
+        it('deberia mostrar los equipos a enfrentarse antes de que finalicen los grupos', function () {
+            botonLlaves().click();
+            expect(cantidadDePartidos('octavos')).toBe(8);
+            expect(nombreEquipo('octavos', 1, 1)).toBe('1° - Grupo A');
+            expect(nombreEquipo('octavos', 1, 2)).toBe('2° - Grupo B');
+            expect(nombreEquipo('octavos', 2, 1)).toBe('1° - Grupo C');
+            expect(nombreEquipo('octavos', 2, 2)).toBe('2° - Grupo D');
+            expect(nombreEquipo('octavos', 3, 1)).toBe('1° - Grupo E');
+            expect(nombreEquipo('octavos', 3, 2)).toBe('2° - Grupo F');
+            expect(nombreEquipo('octavos', 4, 1)).toBe('1° - Grupo G');
+            expect(nombreEquipo('octavos', 4, 2)).toBe('2° - Grupo H');
+            expect(nombreEquipo('octavos', 5, 1)).toBe('1° - Grupo B');
+            expect(nombreEquipo('octavos', 5, 2)).toBe('2° - Grupo A');
+            expect(nombreEquipo('octavos', 6, 1)).toBe('1° - Grupo D');
+            expect(nombreEquipo('octavos', 6, 2)).toBe('2° - Grupo C');
+            expect(nombreEquipo('octavos', 7, 1)).toBe('1° - Grupo F');
+            expect(nombreEquipo('octavos', 7, 2)).toBe('2° - Grupo E');
+            expect(nombreEquipo('octavos', 8, 1)).toBe('1° - Grupo H');
+            expect(nombreEquipo('octavos', 8, 2)).toBe('2° - Grupo G');
+        });
+    });
+
     function claseDeTabDelGrupo(letra) {
         return element('#partidos li:eq(' + letraANumero(letra) + ')').attr('class');
     }
@@ -139,6 +162,39 @@
         letra = letra.toUpperCase();
         var numero = letra.charCodeAt(0) - 65;
         return numero;
+    }
+
+    function botonLlaves() {
+        return element('#llaves');
+    }
+
+    function cantidadDePartidos(llave) {
+        var index = llaveAIndice(llave);
+        return element('.tab-pane:eq(' + index + ') .partido').count();
+    }
+
+    function nombreEquipo(llave, partido, equipo) {
+        var index = llaveAIndice(llave);
+        return element('.tab-pane:eq(' + index + ') .partido:eq(' + (partido - 1) + ') .equipo:eq(' + (equipo - 1) + ')').text();
+    }
+
+    function llaveAIndice(llave) {
+        var index = null;
+        switch (llave) {
+        case 'octavos':
+            index = 0;
+            break;
+        case 'cuartos':
+            index = 1;
+            break;
+        case 'semis':
+            index = 2;
+            break;
+        case 'final':
+            index = 3;
+            break;
+        }
+        return index;
     }
 
 }());

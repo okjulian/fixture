@@ -311,4 +311,64 @@ describe('Service: Grupo', function () {
         });
     });
 
+    describe('obtenerPosiciones', function () {
+        it('deberia devolverme el primero y segundo por grupo', function () {
+            var listaEquipos = Grupo.obtenerPosiciones();
+            expect(listaEquipos.A.length).toBe(2);
+            expect(listaEquipos.B.length).toBe(2);
+            expect(listaEquipos.C.length).toBe(2);
+            expect(listaEquipos.D.length).toBe(2);
+            expect(listaEquipos.E.length).toBe(2);
+            expect(listaEquipos.F.length).toBe(2);
+            expect(listaEquipos.G.length).toBe(2);
+            expect(listaEquipos.H.length).toBe(2);
+        });
+        it('deberia devolver objetos temporales si aun no estan definidos los ganadores de los grupos', function () {
+            var listaEquipos = Grupo.obtenerPosiciones();
+            expect(listaEquipos.A[0].nombre).toBe(null);
+            expect(listaEquipos.A[1].nombre).toBe(null);
+            expect(listaEquipos.B[0].nombre).toBe(null);
+        });
+        xit('deberia calcular primero y segundo correctamente', function () {
+            Grupo.partidos.A = [{
+                resultado: [0, 0]
+            }, {
+                resultado: [0, 0]
+            }, {
+                resultado: [3, 0]
+            }, {
+                resultado: [0, 3]
+            }, {
+                resultado: [0, 3]
+            }, {
+                resultado: [0, 0]
+            }];
+
+            var listaEquipos = Grupo.obtenerPosiciones();
+
+            expect(listaEquipos.A[0].nombre).toBe('Brasil');
+            expect(listaEquipos.A[1].nombre).toBe('Croacia');
+        });
+        xit('deberia determinar al ganador por diferencia de goles', function () {
+            Grupo.partidos.A = [{
+                resultado: [0, 0]
+            }, {
+                resultado: [0, 0]
+            }, {
+                resultado: [3, 0]
+            }, {
+                resultado: [0, 3]
+            }, {
+                resultado: [0, 3]
+            }, {
+                resultado: [4, 0]
+            }];
+
+            var listaEquipos = Grupo.obtenerPosiciones();
+
+            expect(listaEquipos.A[0].nombre).toBe('Croacia');
+            expect(listaEquipos.A[1].nombre).toBe('Brasil');
+        });
+    });
+
 });

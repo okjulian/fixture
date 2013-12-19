@@ -196,4 +196,23 @@ angular.module('mrMundialApp')
                 }
             }
         };
+
+        var determinarGanadores = function (partidos) {
+            return [{
+                nombre: null
+            }, {
+                nombre: null
+            }];
+        };
+
+        this.obtenerPosiciones = function () {
+            var posiciones = {};
+            for (var grupo in _grupos) {
+                if (_grupos.hasOwnProperty(grupo)) {
+                    var ganadores = determinarGanadores(_grupos[grupo].partidos);
+                    posiciones[grupo] = ganadores;
+                }
+            }
+            return posiciones;
+        };
     });
