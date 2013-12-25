@@ -69,43 +69,43 @@ describe('Service: Llave', function () {
     describe('partidos', function () {
 
         it('primer partido deberia ser el primero del grupo A contra el segundo del B', function () {
-            expect(Llave.partidos.octavos[0].equipos[0].nombre).toBe('1° - Grupo A');
-            expect(Llave.partidos.octavos[0].equipos[1].nombre).toBe('Holanda');
+            expect(Llave.partidos.octavos()[0].equipos[0].nombre).toBe('1° - Grupo A');
+            expect(Llave.partidos.octavos()[0].equipos[1].nombre).toBe('Holanda');
         });
 
         it('segundo deberia ser el primero del grupo C contra el segundo del D', function () {
-            expect(Llave.partidos.octavos[1].equipos[0].nombre).toBe('Colombia');
-            expect(Llave.partidos.octavos[1].equipos[1].nombre).toBe('Italia');
+            expect(Llave.partidos.octavos()[1].equipos[0].nombre).toBe('Colombia');
+            expect(Llave.partidos.octavos()[1].equipos[1].nombre).toBe('Italia');
         });
 
         it('tercero deberia ser el primero del grupo E contra el segundo del F', function () {
-            expect(Llave.partidos.octavos[2].equipos[0].nombre).toBe('Francia');
-            expect(Llave.partidos.octavos[2].equipos[1].nombre).toBe('Bosnia');
+            expect(Llave.partidos.octavos()[2].equipos[0].nombre).toBe('Francia');
+            expect(Llave.partidos.octavos()[2].equipos[1].nombre).toBe('Bosnia');
         });
 
         it('cuarto deberia ser el primero del grupo G contra el segundo del H', function () {
-            expect(Llave.partidos.octavos[3].equipos[0].nombre).toBe('Alemania');
-            expect(Llave.partidos.octavos[3].equipos[1].nombre).toBe('Rusia');
+            expect(Llave.partidos.octavos()[3].equipos[0].nombre).toBe('Alemania');
+            expect(Llave.partidos.octavos()[3].equipos[1].nombre).toBe('Rusia');
         });
 
         it('quinto deberia ser el primero del grupo B contra el segundo del A', function () {
-            expect(Llave.partidos.octavos[4].equipos[0].nombre).toBe('1° - Grupo B');
-            expect(Llave.partidos.octavos[4].equipos[1].nombre).toBe('2° - Grupo A');
+            expect(Llave.partidos.octavos()[4].equipos[0].nombre).toBe('1° - Grupo B');
+            expect(Llave.partidos.octavos()[4].equipos[1].nombre).toBe('2° - Grupo A');
         });
 
         it('sexto deberia ser el primero del grupo D contra el segundo del C', function () {
-            expect(Llave.partidos.octavos[5].equipos[0].nombre).toBe('Uruguay');
-            expect(Llave.partidos.octavos[5].equipos[1].nombre).toBe('Japón');
+            expect(Llave.partidos.octavos()[5].equipos[0].nombre).toBe('Uruguay');
+            expect(Llave.partidos.octavos()[5].equipos[1].nombre).toBe('Japón');
         });
 
         it('septimo deberia ser el primero del grupo F contra el segundo del E', function () {
-            expect(Llave.partidos.octavos[6].equipos[0].nombre).toBe('Argentina');
-            expect(Llave.partidos.octavos[6].equipos[1].nombre).toBe('Ecuador');
+            expect(Llave.partidos.octavos()[6].equipos[0].nombre).toBe('Argentina');
+            expect(Llave.partidos.octavos()[6].equipos[1].nombre).toBe('Ecuador');
         });
 
         it('octavo deberia ser el primero del grupo H contra el segundo del G', function () {
-            expect(Llave.partidos.octavos[7].equipos[0].nombre).toBe('Bélgica');
-            expect(Llave.partidos.octavos[7].equipos[1].nombre).toBe('Portugal');
+            expect(Llave.partidos.octavos()[7].equipos[0].nombre).toBe('Bélgica');
+            expect(Llave.partidos.octavos()[7].equipos[1].nombre).toBe('Portugal');
         });
 
     });

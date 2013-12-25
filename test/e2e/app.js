@@ -124,6 +124,33 @@
             expect(nombreEquipo('octavos', 8, 1)).toBe('1° - Grupo H');
             expect(nombreEquipo('octavos', 8, 2)).toBe('2° - Grupo G');
         });
+        it('deberia mostrar los primeros equipos del grupo A en sus respectivos partidos', function () {
+            browser().navigateTo('/');
+            // Bra 1 - 1 Cro
+            ponerResultado('A', 1, 1, 1);
+            ponerResultado('A', 1, 2, 1);
+            // 1 - 1
+            ponerResultado('A', 2, 1, 1);
+            ponerResultado('A', 2, 2, 1);
+
+            // Bra 3 - 0 Mex
+            ponerResultado('A', 3, 1, 3);
+            ponerResultado('A', 3, 2, 0);
+            // Cam 0 - 3 Cro
+            ponerResultado('A', 4, 1, 0);
+            ponerResultado('A', 4, 2, 3);
+            // Cam 0 - 3 Bra
+            ponerResultado('A', 5, 1, 0);
+            ponerResultado('A', 5, 2, 3);
+            // Cro 1 - 1 Mex
+            ponerResultado('A', 6, 1, 1);
+            ponerResultado('A', 6, 2, 1);
+
+            botonLlaves().click();
+
+            expect(nombreEquipo('octavos', 1, 1)).toBe('Brasil');
+            expect(nombreEquipo('octavos', 5, 2)).toBe('Croacia');
+        });
     });
 
     function claseDeTabDelGrupo(letra) {

@@ -18,6 +18,7 @@ describe('Controller: LlavesCtrl', function () {
 
     describe('Octavos', function () {
         it('deberia obtener los partidos del servicio Llaves', function () {
+            scope.$digest();
             expect(scope.partidos).toBeDefined();
         });
     });

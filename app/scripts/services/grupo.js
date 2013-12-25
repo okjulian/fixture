@@ -7,112 +7,176 @@ angular.module('mrMundialApp')
         var _grupos = {
             A: {
                 equipos: [{
-                        nombre: 'Brasil'
+                        nombre: 'Brasil',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Croacia'
+                        nombre: 'Croacia',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Mexico'
+                        nombre: 'Mexico',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Camerún'
+                        nombre: 'Camerún',
+                        puntos: 0,
+                        goles: 0
                 }],
                 partidos: []
             },
             B: {
                 equipos: [{
-                        nombre: 'España'
+                        nombre: 'España',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Holanda'
+                        nombre: 'Holanda',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Chile'
+                        nombre: 'Chile',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Australia'
+                        nombre: 'Australia',
+                        puntos: 0,
+                        goles: 0
                 }],
                 partidos: []
             },
             C: {
                 equipos: [{
-                        nombre: 'Colombia'
+                        nombre: 'Colombia',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Grecia'
+                        nombre: 'Grecia',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Costa de Marfil'
+                        nombre: 'Costa de Marfil',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Japón'
+                        nombre: 'Japón',
+                        puntos: 0,
+                        goles: 0
                 }],
                 partidos: []
             },
             D: {
                 equipos: [{
-                        nombre: 'Uruguay'
+                        nombre: 'Uruguay',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Costa Rica'
+                        nombre: 'Costa Rica',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Inglaterra'
+                        nombre: 'Inglaterra',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Italia'
+                        nombre: 'Italia',
+                        puntos: 0,
+                        goles: 0
                 }],
                 partidos: []
             },
             E: {
                 equipos: [{
-                    nombre: 'Suiza'
+                    nombre: 'Suiza',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Ecuador'
+                    nombre: 'Ecuador',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Francia'
+                    nombre: 'Francia',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Honduras'
+                    nombre: 'Honduras',
+                    puntos: 0,
+                    goles: 0
                 }],
                 partidos: []
             },
             F: {
                 equipos: [{
-                        nombre: 'Argentina'
+                        nombre: 'Argentina',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Bosnia'
+                        nombre: 'Bosnia',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Iran'
+                        nombre: 'Iran',
+                        puntos: 0,
+                        goles: 0
                 },
                     {
-                        nombre: 'Nigeria'
+                        nombre: 'Nigeria',
+                        puntos: 0,
+                        goles: 0
                 }],
                 partidos: []
             },
             G: {
                 equipos: [{
-                    nombre: 'Alemania'
+                    nombre: 'Alemania',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Portugal'
+                    nombre: 'Portugal',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Ghana'
+                    nombre: 'Ghana',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'USA'
+                    nombre: 'USA',
+                    puntos: 0,
+                    goles: 0
                 }],
                 partidos: []
             },
             H: {
                 equipos: [{
-                    nombre: 'Bélgica'
+                    nombre: 'Bélgica',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Algeria'
+                    nombre: 'Algeria',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Rusia'
+                    nombre: 'Rusia',
+                    puntos: 0,
+                    goles: 0
                 }, {
-                    nombre: 'Corea'
+                    nombre: 'Corea',
+                    puntos: 0,
+                    goles: 0
                 }],
                 partidos: []
             }
@@ -172,8 +236,15 @@ angular.module('mrMundialApp')
             return _grupos[letra].equipos;
         };
 
-        this.partidos = function (letra) {
-            return _grupos[letra].partidos;
+        this.partidos = {
+            A: _grupos.A.partidos,
+            B: _grupos.B.partidos,
+            C: _grupos.C.partidos,
+            D: _grupos.D.partidos,
+            E: _grupos.E.partidos,
+            F: _grupos.F.partidos,
+            G: _grupos.G.partidos,
+            H: _grupos.H.partidos
         };
 
         this.autoCompletar = function (letra) {
@@ -197,22 +268,66 @@ angular.module('mrMundialApp')
             }
         };
 
-        var determinarGanadores = function (partidos) {
-            return [{
-                nombre: null
-            }, {
-                nombre: null
-            }];
+        var determinarGanadores = function (partidos, grupo) {
+            for (var partido in partidos) {
+                if (partidos[partido].resultado[0] !== null && partidos[partido].resultado[1] !== null) {
+                    if (partidos[partido].resultado[0] === partidos[partido].resultado[1]) {
+                        partidos[partido].equipos[0].puntos += 1;
+                        partidos[partido].equipos[1].puntos += 1;
+                    } else if (partidos[partido].resultado[0] > partidos[partido].resultado[1]) {
+                        partidos[partido].equipos[0].puntos += 3;
+                    } else {
+                        partidos[partido].equipos[1].puntos += 3;
+                    }
+                    partidos[partido].equipos[0].goles += partidos[partido].resultado[0];
+                    partidos[partido].equipos[1].goles += partidos[partido].resultado[1];
+                }
+            }
+            var equipos = [];
+            for (var equipo in _grupos[grupo].equipos) {
+                if (_grupos[grupo].equipos[equipo].puntos > 0) {
+                    equipos.push(_grupos[grupo].equipos[equipo]);
+                }
+            }
+            equipos.sort(function (a, b) {
+                // ordenar de mayor a menor
+                return b.puntos - a.puntos;
+            });
+            if (equipos.length > 2) {
+                if (equipos[0].puntos === equipos[1].puntos) {
+                    if (equipos[0].goles < equipos[1].goles) {
+                        var primero = equipos[0];
+                        var segundo = equipos[1];
+                        equipos[0] = segundo;
+                        equipos[1] = primero;
+                    }
+                }
+                return [{
+                    nombre: equipos[0].nombre
+                }, {
+                    nombre: equipos[1].nombre
+                }];
+            } else {
+                return [{
+                    nombre: null
+                }, {
+                    nombre: null
+                }];
+            }
         };
 
         this.obtenerPosiciones = function () {
             var posiciones = {};
             for (var grupo in _grupos) {
                 if (_grupos.hasOwnProperty(grupo)) {
-                    var ganadores = determinarGanadores(_grupos[grupo].partidos);
+                    var ganadores = determinarGanadores(_grupos[grupo].partidos, grupo);
                     posiciones[grupo] = ganadores;
                 }
             }
             return posiciones;
+        };
+
+        this.ponerResultado = function (grupo, partido, resultado) {
+            _grupos[grupo].partidos[partido].resultado = resultado;
         };
     });

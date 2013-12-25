@@ -6,13 +6,16 @@ describe('Controller: FaseGruposCtrl', function () {
     beforeEach(module('mrMundialApp'));
 
     var FaseGruposCtrl,
-        scope;
+        scope,
+        Grupo;
 
     // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope) {
+    beforeEach(inject(function ($controller, $rootScope, $injector) {
         scope = $rootScope.$new();
+        Grupo = $injector.get('Grupo');
         FaseGruposCtrl = $controller('FaseGruposCtrl', {
-            $scope: scope
+            $scope: scope,
+            Grupo: Grupo
         });
     }));
 
@@ -76,5 +79,10 @@ describe('Controller: FaseGruposCtrl', function () {
             expect(scope.partidos.A[0].resultado[0]).toBe(4);
             expect(scope.partidos.A[0].resultado[1]).toBe(0);
         });
+    });
+
+    it('deberia poder modificar el valor del servicio grupo', function () {
+        scope.partidos.A[0].resultado = [1, 1];
+        expect(Grupo.partidos.A[0].resultado).toEqual([1, 1]);
     });
 });

@@ -17,42 +17,42 @@ describe('Service: Grupo', function () {
 
     describe('Partidos', function () {
         it('uno deberia enfrentar al equipo 1 contra el equipo 2', function () {
-            var partido1 = Grupo.partidos('A')[0];
+            var partido1 = Grupo.partidos.A[0];
             var equiposA = Grupo.equipos('A');
             expect(partido1.equipos[0]).toBe(equiposA[0]);
             expect(partido1.equipos[1]).toBe(equiposA[1]);
         });
 
         it('dos deberia enfrentar al equipo 3 contra el equipo 4', function () {
-            var partido2 = Grupo.partidos('A')[1];
+            var partido2 = Grupo.partidos.A[1];
             var equiposA = Grupo.equipos('A');
             expect(partido2.equipos[0]).toBe(equiposA[2]);
             expect(partido2.equipos[1]).toBe(equiposA[3]);
         });
 
         it('tres deberia enfrentar al equipo 1 contra el equipo 3', function () {
-            var partido3 = Grupo.partidos('A')[2];
+            var partido3 = Grupo.partidos.A[2];
             var equiposA = Grupo.equipos('A');
             expect(partido3.equipos[0]).toBe(equiposA[0]);
             expect(partido3.equipos[1]).toBe(equiposA[2]);
         });
 
         it('cuatro deberia enfrentar al equipo 3 contra el equipo 1', function () {
-            var partido4 = Grupo.partidos('A')[3];
+            var partido4 = Grupo.partidos.A[3];
             var equiposA = Grupo.equipos('A');
             expect(partido4.equipos[0]).toBe(equiposA[3]);
             expect(partido4.equipos[1]).toBe(equiposA[1]);
         });
 
         it('cinco deberia enfrentar al equipo 4 contra el equipo 1', function () {
-            var partido5 = Grupo.partidos('A')[4];
+            var partido5 = Grupo.partidos.A[4];
             var equiposA = Grupo.equipos('A');
             expect(partido5.equipos[0]).toBe(equiposA[3]);
             expect(partido5.equipos[1]).toBe(equiposA[0]);
         });
 
         it('seis deberia enfrentar al equipo 2 contra el equipo 3', function () {
-            var partido6 = Grupo.partidos('A')[5];
+            var partido6 = Grupo.partidos.A[5];
             var equiposA = Grupo.equipos('A');
             expect(partido6.equipos[0]).toBe(equiposA[1]);
             expect(partido6.equipos[1]).toBe(equiposA[2]);
@@ -66,7 +66,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('A');
-            partidos = Grupo.partidos('A');
+            partidos = Grupo.partidos.A;
         });
 
         it('deberia tener a Brasil, Croacia, Mexico y Camerún', function () {
@@ -117,7 +117,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('B');
-            partidos = Grupo.partidos('B');
+            partidos = Grupo.partidos.B;
         });
 
         it('deberia tener a España, Holanda, Chile y Australia', function () {
@@ -168,7 +168,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('C');
-            partidos = Grupo.partidos('C');
+            partidos = Grupo.partidos.C;
         });
 
         it('deberia tener a Colombia, Grecia, Costa de Marfil y Japón', function () {
@@ -186,7 +186,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('D');
-            partidos = Grupo.partidos('D');
+            partidos = Grupo.partidos.D;
         });
 
         it('deberia tener a Uruguay, Costa Rica, Inglaterra e Italia', function () {
@@ -204,7 +204,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('E');
-            partidos = Grupo.partidos('E');
+            partidos = Grupo.partidos.E;
         });
 
         it('deberia tener a Suiza, Ecuador, Francia y Honduras', function () {
@@ -222,7 +222,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('F');
-            partidos = Grupo.partidos('F');
+            partidos = Grupo.partidos.F;
         });
 
         it('deberia tener a Argentina, Bosnia, Iran y Nigeria', function () {
@@ -240,7 +240,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('G');
-            partidos = Grupo.partidos('G');
+            partidos = Grupo.partidos.G;
         });
 
         it('deberia tener a Alemania, Portugal, Ghana y USA', function () {
@@ -258,7 +258,7 @@ describe('Service: Grupo', function () {
 
         beforeEach(function () {
             equipos = Grupo.equipos('H');
-            partidos = Grupo.partidos('H');
+            partidos = Grupo.partidos.H;
         });
 
         it('deberia tener a Bélgica, Algeria, Rusia y Corea', function () {
@@ -272,7 +272,7 @@ describe('Service: Grupo', function () {
 
     describe('autocompletar', function () {
         it('deberia autocompletar los resultados de un grupo', function () {
-            var partidos = Grupo.partidos('A');
+            var partidos = Grupo.partidos.A;
 
             Grupo.autoCompletar('A');
 
@@ -283,8 +283,8 @@ describe('Service: Grupo', function () {
         });
 
         it('deberia autocompletar los resultados de todos los grupos', function () {
-            var partidosA = Grupo.partidos('A');
-            var partidosB = Grupo.partidos('B');
+            var partidosA = Grupo.partidos.A;
+            var partidosB = Grupo.partidos.B;
 
             Grupo.autoCompletarTodos();
 
@@ -299,7 +299,7 @@ describe('Service: Grupo', function () {
         });
 
         it('no deberia sobreescribir resultados ya asignados', function () {
-            var partidos = Grupo.partidos('A');
+            var partidos = Grupo.partidos.A;
 
             partidos[0].resultado[0] = 4;
             partidos[0].resultado[1] = 0;
@@ -329,42 +329,44 @@ describe('Service: Grupo', function () {
             expect(listaEquipos.A[1].nombre).toBe(null);
             expect(listaEquipos.B[0].nombre).toBe(null);
         });
-        xit('deberia calcular primero y segundo correctamente', function () {
-            Grupo.partidos.A = [{
-                resultado: [0, 0]
-            }, {
-                resultado: [0, 0]
-            }, {
-                resultado: [3, 0]
-            }, {
-                resultado: [0, 3]
-            }, {
-                resultado: [0, 3]
-            }, {
-                resultado: [0, 0]
-            }];
+        it('deberia calcular primero y segundo correctamente', function () {
+            Grupo.ponerResultado('A', 0, [0, 0]);
+            Grupo.ponerResultado('A', 1, [0, 0]);
+            Grupo.ponerResultado('A', 2, [3, 0]);
+            Grupo.ponerResultado('A', 3, [0, 0]);
+            Grupo.ponerResultado('A', 4, [0, 3]);
+            Grupo.ponerResultado('A', 5, [3, 0]);
+
+            /*console.log(Grupo.partidos('A')[0].equipos); // Bra - Cro
+            console.log(Grupo.partidos('A')[1].equipos); // Mex - Cam
+            console.log(Grupo.partidos('A')[2].equipos); // Bra - Mex
+            console.log(Grupo.partidos('A')[3].equipos); // Cam - Cro
+            console.log(Grupo.partidos('A')[4].equipos); // Cam - Bra
+            console.log(Grupo.partidos('A')[5].equipos); // Cro - Mex*/
 
             var listaEquipos = Grupo.obtenerPosiciones();
 
             expect(listaEquipos.A[0].nombre).toBe('Brasil');
             expect(listaEquipos.A[1].nombre).toBe('Croacia');
         });
-        xit('deberia determinar al ganador por diferencia de goles', function () {
-            Grupo.partidos.A = [{
-                resultado: [0, 0]
-            }, {
-                resultado: [0, 0]
-            }, {
-                resultado: [3, 0]
-            }, {
-                resultado: [0, 3]
-            }, {
-                resultado: [0, 3]
-            }, {
-                resultado: [4, 0]
-            }];
+        it('deberia determinar al ganador por diferencia de goles', function () {
+            Grupo.ponerResultado('A', 0, [0, 0]);
+            Grupo.ponerResultado('A', 1, [0, 0]);
+            Grupo.ponerResultado('A', 2, [0, 0]);
+            Grupo.ponerResultado('A', 3, [0, 0]);
+            Grupo.ponerResultado('A', 4, [0, 1]);
+            Grupo.ponerResultado('A', 5, [2, 0]);
 
             var listaEquipos = Grupo.obtenerPosiciones();
+
+            /*console.log(Grupo.partidos('A')[0].equipos); // Bra - Cro
+            console.log(Grupo.partidos('A')[1].equipos); // Mex - Cam
+            console.log(Grupo.partidos('A')[2].equipos); // Bra - Mex
+            console.log(Grupo.partidos('A')[3].equipos); // Cam - Cro
+            console.log(Grupo.partidos('A')[4].equipos); // Cam - Bra
+            console.log(Grupo.partidos('A')[5].equipos); // Cro - Mex*/
+
+            //console.log(Grupo.obtenerPosiciones('A').A);
 
             expect(listaEquipos.A[0].nombre).toBe('Croacia');
             expect(listaEquipos.A[1].nombre).toBe('Brasil');

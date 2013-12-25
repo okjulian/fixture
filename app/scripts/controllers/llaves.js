@@ -2,7 +2,9 @@
 
 angular.module('mrMundialApp')
     .controller('LlavesCtrl', function ($scope, Llave) {
-        $scope.partidos = {
-            octavos: Llave.partidos.octavos
-        };
+        $scope.$watchCollection(function () { return Llave.partidos }, function (data) {
+            $scope.partidos = {
+                octavos: data.octavos
+            };
+        });
     });
