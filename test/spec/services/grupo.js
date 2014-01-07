@@ -371,6 +371,21 @@ describe('Service: Grupo', function () {
             expect(listaEquipos.A[0].nombre).toBe('Croacia');
             expect(listaEquipos.A[1].nombre).toBe('Brasil');
         });
+		it('deberia determinar al ganador al azar', function () {
+            Grupo.ponerResultado('A', 0, [1, 1]);
+            Grupo.ponerResultado('A', 1, [1, 1]);
+            Grupo.ponerResultado('A', 2, [1, 1]);
+            Grupo.ponerResultado('A', 3, [1, 1]);
+            Grupo.ponerResultado('A', 4, [1, 1]);
+            Grupo.ponerResultado('A', 5, [1, 1]);
+			
+			spyOn(Math, "random");
+			
+            var listaEquipos = Grupo.obtenerPosiciones();
+            expect(Math.random).toHaveBeenCalled();
+			//expect(listaEquipos.A[0].nombre).not.toBe(undefined);
+            //expect(listaEquipos.A[1].nombre).not.toBe(undefined);
+        });
     });
 
 });

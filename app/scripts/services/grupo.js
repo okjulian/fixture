@@ -182,6 +182,19 @@ angular.module('mrMundialApp')
             }
         };
 
+        function reordenar(arreglo) {
+            /* Mientras el tamaño del arreglo sea mayor a 0
+			extraer un valor al azar del arreglo
+			agregarlo al arreglo resultado
+			*/
+            var resultado = [];
+            while (arreglo.length > 0) {
+                var valorExtraido = arreglo.splice(Math.floor(Math.random() * arreglo.length), 1);
+                resultado.push(valorExtraido[0]);
+            }
+            return resultado;
+        }
+
         function generarTodosLosPartidos() {
             for (var property in _grupos) {
                 if (_grupos.hasOwnProperty(property)) {
@@ -269,43 +282,96 @@ angular.module('mrMundialApp')
         };
 
         var determinarGanadores = function (partidos, grupo) {
+            //Setear los puntos y goles a 0 para no volver a sumar
+            for (var e = 0; e <= 3; e++) {
+                _grupos[grupo].equipos[e].puntos = 0;
+                _grupos[grupo].equipos[e].goles = 0;
+            }
             for (var partido in partidos) {
+                //Si hay resultado
                 if (partidos[partido].resultado[0] !== null && partidos[partido].resultado[1] !== null) {
                     if (partidos[partido].resultado[0] === partidos[partido].resultado[1]) {
+                        //Partido empatado 1 punto para cada uno
                         partidos[partido].equipos[0].puntos += 1;
                         partidos[partido].equipos[1].puntos += 1;
                     } else if (partidos[partido].resultado[0] > partidos[partido].resultado[1]) {
+                        //Partido ganado para el primer equipo +3 puntos
                         partidos[partido].equipos[0].puntos += 3;
                     } else {
+                        //Partido ganado para el segundo equipo +3 puntos
                         partidos[partido].equipos[1].puntos += 3;
                     }
+                    //Sumar goles
                     partidos[partido].equipos[0].goles += partidos[partido].resultado[0];
                     partidos[partido].equipos[1].goles += partidos[partido].resultado[1];
                 }
             }
             var equipos = [];
+            var empates = [];
+            var posiciones = [];
+            //Arreglo con equipos con puntos para descartar quienes no tienen puntos
             for (var equipo in _grupos[grupo].equipos) {
                 if (_grupos[grupo].equipos[equipo].puntos > 0) {
                     equipos.push(_grupos[grupo].equipos[equipo]);
                 }
             }
-            equipos.sort(function (a, b) {
-                // ordenar de mayor a menor
-                return b.puntos - a.puntos;
-            });
-            if (equipos.length > 2) {
-                if (equipos[0].puntos === equipos[1].puntos) {
-                    if (equipos[0].goles < equipos[1].goles) {
-                        var primero = equipos[0];
-                        var segundo = equipos[1];
-                        equipos[0] = segundo;
-                        equipos[1] = primero;
+            if (equipos.length >= 2) {
+                equipos.sort(function (a, b) {
+                    // ordenar de mayor a menor en goles
+                    return b.goles - a.goles;
+                });
+                equipos.sort(function (a, b) {
+                    // ordenar de mayor a menor en puntos
+                    return b.puntos - a.puntos;
+                });
+                for (var i = 0; i < equipos.length; i++) {
+                    var eq1;
+                    var eq2;
+                    var empata = false;
+                    //Si existen equipos restantes
+                    if (i < equipos.length - 1) {
+                        eq1 = equipos[i];
+                        eq2 = equipos[i + 1];
+                        //Si tienen los mismos puntos
+                        if (eq1.puntos === eq2.puntos) {
+                            //Si tienen los mismos goles -> ir a sorteo
+                            if (eq1.goles === eq2.goles) {
+                                empata = true;
+                            }
+                        }
+                    } else {
+                        eq1 = equipos[i];
+                        eq2 = equipos[i - 1];
+                        if (eq1.puntos === eq2.puntos) {
+                            //Si tiene los mismos goles que el anterior -> ir a sorteo
+                            if (eq1.goles === eq2.goles) {
+                                empata = true;
+                            }
+                        }
+                    }
+                    //Si existen equipos anteriores a sorteo entonces esta empatado con el equipo actual -> ir a sorteo
+                    if (empates.length > 0) {
+                        empata = true;
+                    }
+                    if (empata) {
+                        //A sorteo
+                        empates.push(eq1.nombre);
+                    } else {
+                        //Directamente a posicion fija
+                        posiciones.push(eq1.nombre);
                     }
                 }
+                //Si las posiciones son menores a 2 puestos y hay equipos para desempatar
+                if (empates.length >= 2 && posiciones.length < 2) {
+                    //Desempatar y añadir a posiciones fijas
+                    empates = reordenar(empates);
+                    posiciones.push(empates[0]);
+                    posiciones.push(empates[1]);
+                }
                 return [{
-                    nombre: equipos[0].nombre
+                    nombre: posiciones[0]
                 }, {
-                    nombre: equipos[1].nombre
+                    nombre: posiciones[1]
                 }];
             } else {
                 return [{
