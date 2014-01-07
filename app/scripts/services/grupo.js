@@ -393,7 +393,14 @@ angular.module('mrMundialApp')
             return posiciones;
         };
 
-        this.ponerResultado = function (grupo, partido, resultado) {
-            _grupos[grupo].partidos[partido].resultado = resultado;
+        this.ponerResultado = function (grupo, partido, pos, resultado) {
+			if(isNaN(resultado)){
+				resultado = 0;
+			}
+			resultado = parseInt(resultado);
+			if(resultado<0){
+				resultado = 0;
+			}
+            _grupos[grupo].partidos[partido].resultado[pos] = resultado;
         };
     });

@@ -20,6 +20,17 @@
             expect(claseDeTabDelGrupo('B')).toContain('active');
             expect(cantidadDePartidosDelGrupo('B')).toBe(6);
         });
+		
+		it('deberia mostrar cero si un resultado se coloca como negativo', function () {
+            ponerResultado('A', 1, 1, -1);
+            expect(obtenerResultado('A', 1, 1)).toBe('0');
+        });
+		
+		it('deberia mostrar cero si un resultado se coloca como String', function () {
+            ponerResultado('B', 1, 1, 'aasd');
+			pause();
+            expect(obtenerResultado('B', 1, 1)).toBe('0');
+        });
 
         describe('Autocompletar', function () {
 

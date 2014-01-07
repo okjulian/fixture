@@ -330,19 +330,18 @@ describe('Service: Grupo', function () {
             expect(listaEquipos.B[0].nombre).toBe(null);
         });
         it('deberia calcular primero y segundo correctamente', function () {
-            Grupo.ponerResultado('A', 0, [0, 0]);
-            Grupo.ponerResultado('A', 1, [0, 0]);
-            Grupo.ponerResultado('A', 2, [3, 0]);
-            Grupo.ponerResultado('A', 3, [0, 0]);
-            Grupo.ponerResultado('A', 4, [0, 3]);
-            Grupo.ponerResultado('A', 5, [3, 0]);
-
-            /*console.log(Grupo.partidos('A')[0].equipos); // Bra - Cro
-            console.log(Grupo.partidos('A')[1].equipos); // Mex - Cam
-            console.log(Grupo.partidos('A')[2].equipos); // Bra - Mex
-            console.log(Grupo.partidos('A')[3].equipos); // Cam - Cro
-            console.log(Grupo.partidos('A')[4].equipos); // Cam - Bra
-            console.log(Grupo.partidos('A')[5].equipos); // Cro - Mex*/
+            Grupo.ponerResultado('A', 0, 0, 0);
+			Grupo.ponerResultado('A', 0, 1, 0);
+            Grupo.ponerResultado('A', 1, 0, 0);
+			Grupo.ponerResultado('A', 1, 1, 0);
+            Grupo.ponerResultado('A', 2, 0, 3);
+			Grupo.ponerResultado('A', 2, 1, 0);
+            Grupo.ponerResultado('A', 3, 0, 0);
+			Grupo.ponerResultado('A', 3, 1, 0);
+            Grupo.ponerResultado('A', 4, 0, 0);
+			Grupo.ponerResultado('A', 4, 1, 3);
+            Grupo.ponerResultado('A', 5, 0, 3);
+			Grupo.ponerResultado('A', 5, 1, 0);
 
             var listaEquipos = Grupo.obtenerPosiciones();
 
@@ -350,12 +349,18 @@ describe('Service: Grupo', function () {
             expect(listaEquipos.A[1].nombre).toBe('Croacia');
         });
         it('deberia determinar al ganador por diferencia de goles', function () {
-            Grupo.ponerResultado('A', 0, [0, 0]);
-            Grupo.ponerResultado('A', 1, [0, 0]);
-            Grupo.ponerResultado('A', 2, [0, 0]);
-            Grupo.ponerResultado('A', 3, [0, 0]);
-            Grupo.ponerResultado('A', 4, [0, 1]);
-            Grupo.ponerResultado('A', 5, [2, 0]);
+            Grupo.ponerResultado('A', 0, 0, 0);
+			Grupo.ponerResultado('A', 0, 1, 0);
+            Grupo.ponerResultado('A', 1, 0, 0);
+			Grupo.ponerResultado('A', 1, 1, 0);
+            Grupo.ponerResultado('A', 2, 0, 0);
+			Grupo.ponerResultado('A', 2, 1, 0);
+            Grupo.ponerResultado('A', 3, 0, 0);
+			Grupo.ponerResultado('A', 3, 1, 0);
+            Grupo.ponerResultado('A', 4, 0, 0);
+			Grupo.ponerResultado('A', 4, 1, 1);
+            Grupo.ponerResultado('A', 5, 0, 2);
+			Grupo.ponerResultado('A', 5, 1, 0);
 
             var listaEquipos = Grupo.obtenerPosiciones();
 
@@ -372,12 +377,18 @@ describe('Service: Grupo', function () {
             expect(listaEquipos.A[1].nombre).toBe('Brasil');
         });
 		it('deberia determinar al ganador al azar', function () {
-            Grupo.ponerResultado('A', 0, [1, 1]);
-            Grupo.ponerResultado('A', 1, [1, 1]);
-            Grupo.ponerResultado('A', 2, [1, 1]);
-            Grupo.ponerResultado('A', 3, [1, 1]);
-            Grupo.ponerResultado('A', 4, [1, 1]);
-            Grupo.ponerResultado('A', 5, [1, 1]);
+            Grupo.ponerResultado('A', 0, 0, 1);
+			Grupo.ponerResultado('A', 0, 1, 1);
+            Grupo.ponerResultado('A', 1, 0, 1);
+			Grupo.ponerResultado('A', 1, 1, 1);
+            Grupo.ponerResultado('A', 2, 0, 1);
+			Grupo.ponerResultado('A', 2, 1, 1);
+            Grupo.ponerResultado('A', 3, 0, 1);
+			Grupo.ponerResultado('A', 3, 1, 1);
+            Grupo.ponerResultado('A', 4, 0, 1);
+			Grupo.ponerResultado('A', 4, 1, 1);
+            Grupo.ponerResultado('A', 5, 0, 1);
+			Grupo.ponerResultado('A', 5, 1, 1);
 			
 			spyOn(Math, "random");
 			

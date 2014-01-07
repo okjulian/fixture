@@ -14,15 +14,14 @@
 
     <tabset justified=true>
         <tab heading="A">
-
             <!-- <partidos grupo="A"> </partidos> -->
             <div class="row partido" ng-repeat="partido in partidos.A">
                 <!-- <partido equipos="partido.equipos" resultado="partidos.A[$index].resultado"> -->
                 <div class="input-group">
-                    <input ng-model="partidos.A[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.A[$index].resultado[0]" ng-change="ponerResultado('A',$index,0,partidos.A[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.A[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.A[$index].resultado[1]" ng-change="ponerResultado('A',$index,1,partidos.A[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -36,10 +35,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.B">
                 <div class="input-group">
-                    <input ng-model="partidos.B[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.B[$index].resultado[0]" ng-change="ponerResultado('B',$index,0,partidos.B[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.B[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.B[$index].resultado[1]" ng-change="ponerResultado('B',$index,1,partidos.B[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -53,10 +52,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.C">
                 <div class="input-group">
-                    <input ng-model="partidos.C[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.C[$index].resultado[0]" ng-change="ponerResultado('C',$index,0,partidos.C[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.C[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.C[$index].resultado[1]" ng-change="ponerResultado('C',$index,1,partidos.C[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -70,10 +69,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.D">
                 <div class="input-group">
-                    <input ng-model="partidos.D[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.D[$index].resultado[0]" ng-change="ponerResultado('D',$index,0,partidos.D[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.D[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.D[$index].resultado[1]" ng-change="ponerResultado('D',$index,1,partidos.D[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -86,10 +85,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.E">
                 <div class="input-group">
-                    <input ng-model="partidos.E[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.E[$index].resultado[0]" ng-change="ponerResultado('E',$index,0,partidos.E[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.E[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.E[$index].resultado[1]" ng-change="ponerResultado('E',$index,1,partidos.E[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -103,10 +102,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.F">
                 <div class="input-group">
-                    <input ng-model="partidos.F[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.F[$index].resultado[0]" ng-change="ponerResultado('F',$index,0,partidos.F[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.F[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.F[$index].resultado[1]" ng-change="ponerResultado('F',$index,1,partidos.F[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -120,10 +119,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.G">
                 <div class="input-group">
-                    <input ng-model="partidos.G[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.G[$index].resultado[0]" ng-change="ponerResultado('G',$index,0,partidos.G[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.G[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.G[$index].resultado[1]" ng-change="ponerResultado('G',$index,1,partidos.G[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 
@@ -137,10 +136,10 @@
 
             <div class="row partido" ng-repeat="partido in partidos.H">
                 <div class="input-group">
-                    <input ng-model="partidos.H[$index].resultado[0]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.H[$index].resultado[0]" ng-change="ponerResultado('H',$index,0,partidos.H[$index].resultado[0])" class="form-control resultado">
                     <span class="input-group-addon equipo">{{partido.equipos[0].nombre}}</span>
                     <span class="input-group-addon equipo">{{partido.equipos[1].nombre}}</span>
-                    <input ng-model="partidos.H[$index].resultado[1]" type="number" class="form-control resultado">
+                    <input ng-model="partidos.H[$index].resultado[1]" ng-change="ponerResultado('H',$index,1,partidos.H[$index].resultado[1])" class="form-control resultado">
                 </div>
             </div>
 

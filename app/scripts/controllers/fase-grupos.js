@@ -11,4 +11,6 @@ angular.module('mrMundialApp')
         $scope.autoCompletarGrupos = function () {
             Grupo.autoCompletarTodos();
         };
+		
+		$scope.ponerResultado = Grupo.ponerResultado;
     });
