@@ -54,7 +54,7 @@ describe('Controller: FaseGruposCtrl', function () {
     describe('autocompletar', function () {
         it('deberia autocompletar los resultados de un grupo', function () {
             scope.autoCompletarGrupo('A');
-            scope.partidos.A.forEach(function (element, index, array) {
+            scope.partidos.A.forEach(function (element) {
                 expect(element.resultado[0]).not.toBe(null);
                 expect(element.resultado[1]).not.toBe(null);
             });
@@ -62,11 +62,11 @@ describe('Controller: FaseGruposCtrl', function () {
 
         it('deberia autocompletar los resultados de todos los grupos', function () {
             scope.autoCompletarGrupos();
-            scope.partidos.A.forEach(function (element, index, array) {
+            scope.partidos.A.forEach(function (element) {
                 expect(element.resultado[0]).not.toBe(null);
                 expect(element.resultado[1]).not.toBe(null);
             });
-            scope.partidos.B.forEach(function (element, index, array) {
+            scope.partidos.B.forEach(function (element) {
                 expect(element.resultado[0]).not.toBe(null);
                 expect(element.resultado[1]).not.toBe(null);
             });

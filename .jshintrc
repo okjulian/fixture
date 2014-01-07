@@ -19,6 +19,7 @@
   "trailing": true,
   "smarttabs": true,
   "-W015": false,
+  "-W040": false,
   "globals": {
     "angular": false,
     "describe": false,
@@ -31,6 +32,8 @@
     "xit": false,
     "jasmine": false,
     "using": false,
+    "pause": false,
+    "input": false,
     "expect": false
   }
 }
