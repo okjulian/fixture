@@ -28,7 +28,6 @@
 		
 		it('deberia mostrar cero si un resultado se coloca como String', function () {
             ponerResultado('B', 1, 1, 'aasd');
-			pause();
             expect(obtenerResultado('B', 1, 1)).toBe('0');
         });
 
