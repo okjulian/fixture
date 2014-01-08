@@ -137,6 +137,48 @@
         });
         it('deberia mostrar los primeros equipos del grupo A en sus respectivos partidos', function () {
             browser().navigateTo('/');
+
+            // Bra 1 - 1 Cro
+            ponerResultado('A', 1, 1, 1);
+            ponerResultado('A', 1, 2, 1);
+            // 1 - 1
+            ponerResultado('A', 2, 1, 1);
+            ponerResultado('A', 2, 2, 1);
+            // Bra 3 - 0 Mex
+            ponerResultado('A', 3, 1, 3);
+            ponerResultado('A', 3, 2, 0);
+            // Cam 0 - 3 Cro
+            ponerResultado('A', 4, 1, 0);
+            ponerResultado('A', 4, 2, 3);
+            // Cam 0 - 3 Bra
+            ponerResultado('A', 5, 1, 0);
+            ponerResultado('A', 5, 2, 3);
+            // Cro 1 - 1 Mex
+            ponerResultado('A', 6, 1, 1);
+            ponerResultado('A', 6, 2, 1);
+
+            botonLlaves().click();
+
+            expect(nombreEquipo('octavos', 1, 1)).toBe('Brasil');
+            expect(nombreEquipo('octavos', 5, 2)).toBe('Croacia');
+        });
+    });
+
+    describe('Cuartos', function () {
+        it('deberia mostrar los equipos a enfrentarse antes de que finalicen los octavos', function () {
+            botonLlaves().click();
+            expect(cantidadDePartidos('cuartos')).toBe(4);
+            expect(nombreEquipo('cuartos', 1, 1)).toBe('Ganador octavos 1');
+            expect(nombreEquipo('cuartos', 1, 2)).toBe('Ganador octavos 2');
+            expect(nombreEquipo('cuartos', 2, 1)).toBe('Ganador octavos 3');
+            expect(nombreEquipo('cuartos', 2, 2)).toBe('Ganador octavos 4');
+            expect(nombreEquipo('cuartos', 3, 1)).toBe('Ganador octavos 5');
+            expect(nombreEquipo('cuartos', 3, 2)).toBe('Ganador octavos 6');
+            expect(nombreEquipo('cuartos', 4, 1)).toBe('Ganador octavos 7');
+            expect(nombreEquipo('cuartos', 4, 2)).toBe('Ganador octavos 8');
+        });
+        it('deberia enfrentar a los ganadores de octavos', function () {
+            browser().navigateTo('/');
             // Bra 1 - 1 Cro
             ponerResultado('A', 1, 1, 1);
             ponerResultado('A', 1, 2, 1);
@@ -157,10 +199,37 @@
             ponerResultado('A', 6, 1, 1);
             ponerResultado('A', 6, 2, 1);
 
+            // Esp 1 - 1 Hol
+            ponerResultado('B', 1, 1, 1);
+            ponerResultado('B', 1, 2, 1);
+            // Chi 1 - 1 Aus
+            ponerResultado('B', 2, 1, 1);
+            ponerResultado('B', 2, 2, 1);
+            // Esp 3 - 0 Chi
+            ponerResultado('B', 3, 1, 3);
+            ponerResultado('B', 3, 2, 0);
+            // Aus 0 - 3 Hol
+            ponerResultado('B', 4, 1, 0);
+            ponerResultado('B', 4, 2, 3);
+            // Aus 0 - 3 Esp
+            ponerResultado('B', 5, 1, 0);
+            ponerResultado('B', 5, 2, 3);
+            // Hol 1 - 1 Chi
+            ponerResultado('B', 6, 1, 1);
+            ponerResultado('B', 6, 2, 1);
+
             botonLlaves().click();
 
             expect(nombreEquipo('octavos', 1, 1)).toBe('Brasil');
-            expect(nombreEquipo('octavos', 5, 2)).toBe('Croacia');
+            expect(nombreEquipo('octavos', 1, 2)).toBe('Holanda');
+
+            // partido 1 de octavos: Bra 2-0 Hol
+            ponerResultadoEnLlave('octavos', 1, 1, 2);
+            ponerResultadoEnLlave('octavos', 1, 2, 0);
+
+            tabDeLlave('cuartos').click();
+
+            expect(nombreEquipo('cuartos', 1, 1)).toBe('Brasil');
         });
     });
 
@@ -233,6 +302,14 @@
             break;
         }
         return index;
+    }
+
+    function tabDeLlave(llave) {
+        return element('#llaves li:eq(' + llaveAIndice(llave) + ') a');
+    }
+
+    function ponerResultadoEnLlave(llave, partido, equipo, resultado) {
+        input('partidos.' + llave + '[' + (partido - 1) + '].resultado[' + (equipo - 1) + ']').enter(resultado);
     }
 
 }());

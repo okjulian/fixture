@@ -19,7 +19,18 @@ describe('Controller: LlavesCtrl', function () {
     describe('Octavos', function () {
         it('deberia obtener los partidos del servicio Llaves', function () {
             scope.$digest();
-            expect(scope.partidos).toBeDefined();
+            expect(scope.partidos.octavos).toBeDefined();
         });
+    });
+
+    describe('Cuartos', function () {
+        it('deberia obtener los partidos del servicio Llaves', function () {
+            scope.$digest();
+            expect(scope.partidos.cuartos).toBeDefined();
+        });
+    });
+
+    it('deberia tener definida la funcion ponerResultado', function () {
+        expect(scope.ponerResultado).toBeDefined();
     });
 });
